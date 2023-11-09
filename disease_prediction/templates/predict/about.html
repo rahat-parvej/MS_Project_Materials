@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetics Predictin System</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- fonts link  -->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body predict_pages_nav" data-bs-theme="dark">
+            <!-- Navbar content -->
+            <div class="container">
+                <a class="navbar-brand" href="#">DiaPred</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'predict' %}">Predict Your Diabetes</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="about_us_body">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <h3 class="text-center ">The Project is Superviced by</h3><br class="d-none d-md-block d-lg-none">
+                    <div class="card mb-3 mx-auto" style="max-width: 25rem; height: 750px;">
+                        <img src="{% static 'img/PP-Pic-2-247x300.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"> Dr. A. H. M. Kamal</h5>
+                            <p class="card-text">Professor</p>
+                            <address>
+                                Dept. of Computer Science and Engineering <br>
+                                Jatiya Kabi Kazi Nazrul Islam University <br>
+                                Trishal, Mymensingh, Bangladesh
+                            </address>
+                            <p class="card-text social_icon text-center">
+                                <a href="" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>&nbsp;
+                                <a href="" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>&nbsp;
+                                <a href="mailto:ahmkctg@yahoo.com"><i class="fa-solid fa-envelope"></i></a>&nbsp;
+                                <a href="" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a> 
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <h3 class="text-center">The Project is Designed and Developed by</h3>
+                    <div class="card mb-3 mx-auto" style="max-width: 25rem; height: 750px;">
+                        <img src="{% static 'img/passport size.JPG' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Rahat Parvej</h5>
+                            <p class="card-text mb-0">
+                                B.Sc.<small>(Engg.)</small> in Computer Science and Engineering <br>
+                                MS in Computer Science and Engineering<small>(Ongoing)</small>
+                            </p>
+                            <address>
+                                Dept. of Computer Science and Engineering <br>
+                                Jatiya Kabi Kazi Nazrul Islam University <br>
+                                Trishal, Mymensingh, Bangladesh
+                            </address>
+                            <p class="card-text social_icon text-center">
+                                <a href="https://www.facebook.com/rahat.parvej.184/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>&nbsp;
+                                <a href="https://www.linkedin.com/in/rahat-parvej/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>&nbsp;
+                                <a href="mailto:rahatparvej2@gmail.com"><i class="fa-solid fa-envelope"></i></a>&nbsp;
+                                <a href="https://twitter.com/Rahat_parvej_r" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="project_summary border p-3 rounded">আমরা জানি সাম্প্রতিক সময়ে মেডিক্যাল ডাটা কতটা গুরুত্বপূর্ণ ও ব্যক্তিগত। ফলে ডাটার গোপনীয়তা রক্ষা করাও অপরিহার্য বিষয়। 
+                        কেননা, ব্যক্তিগত ও রাষ্ট্রীয় উভয় পর্যায়ের জন্যে এসব ডাটা স্পর্শকাতর। ফলে প্রতিষ্ঠান ও রাষ্ট্রীয় বিধিবিধানের দরুন সেসব ডাটা 
+                        অবমুক্ত করা যায় না বা হয় না। কিন্তু সেসব বড় আকারের ডাটাকে রোগ নির্ণয়ের কাজে পর্যালোচনার অংশ হিসাবে ব্যবহার করা গেলে 
+                        তা রোগ নির্ণয়ের নতুন মডেল তৈরিতে গুরুত্বপূর্ণ ভূমিকা রাখবে। এ ক্ষেত্রে আমরা ফেডারেটেড লার্নিং পদ্ধতির উন্নয়ন করতে চাচ্ছি 
+                        যেখানে আমাদের প্রতাবিত মডেলের একটি মডিউল ক্লায়েন্ট এন্ডে বসে ক্লায়েন্টের ডাটা নিয়ে পর্যালোচনা করবে। তারপর ক্লায়েন্ট এন্ডে 
+                        প্রক্রিয়াকৃত আউটপুটকে সার্ভারে প্রেরণ করবে এবং সার্ভার বিভিন্ন ক্লায়েন্ট হতে প্রাপ্ত ফলাফলগুলো নিয়ে নিজের মডেলকে আরও উন্নত 
+                        ভাবে লার্নিং করা শেখাবে। এ ক্ষেত্রে ক্লায়েন্টের ডাটা অন্যত্র সরবরাহের প্রয়োজন পড়বে না। অর্থাৎ আমাদের প্রস্তাবিত মডেল মেডিক্যাল 
+                        কর্তৃপক্ষের তথ্যকে তাদের সিস্টেমের বাহিরে না নিয়েই রোগের পূর্বাভাস দিতে পারবে। এমনকি আমরা সেই লার্নিং মডেলকেও উন্নয়নের 
+                        প্রস্তাব রাখছি। প্রস্তাবের বাস্তবায়ন হলে তা নির্ভুলভাবে রোগ নির্ণয়ের মাধ্যমে মানব কল্যাণে বড় ভূমিকা রাখবে।</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+
+
+    <footer class="bg-dark border-top border-body">
+        <div class="container sticky-bottom">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-end text-light py-3 mb-0">Designed by <a href="{% url 'about' %}">Rahat Parvej</a>- &copy;{% now 'Y' %}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

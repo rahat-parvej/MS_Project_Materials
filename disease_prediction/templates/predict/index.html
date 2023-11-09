@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetics Predictin System</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- fonts link  -->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body predict_pages_nav" data-bs-theme="dark">
+            <!-- Navbar content -->
+            <div class="container">
+                <a class="navbar-brand" href="#">DiaPred</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'predict' %}">Predict Your Diabetes</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="predict_home_Carosel pb-3">
+        <div class="container-fluid px-4">
+            <div class="row gx-5">
+                <div class="col-md-12 px-0">
+                    <img src="{% static "img/pexels-nataliya-vaitkevich-6941884.jpg" %}" alt="" srcset="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="predict_home_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 px-0">
+                    <h1 class="pb-5">Diabetes</h1>
+                    <h2>Key facts</h2>
+                    <ul class="fw-bold">
+                        <li>The number of people with diabetes rose from 108 million in 1980 to 422 million in 2014. Prevalence has been rising more rapidly in low- and middle-income countries than in high-income countries.</li>
+                        <li>Diabetes is a major cause of blindness, kidney failure, heart attacks, stroke and lower limb amputation.</li>
+                        <li>Between 2000 and 2019, there was a 3% increase in diabetes mortality rates by age.</li>
+                        <li>In 2019, diabetes and kidney disease due to diabetes caused an estimated 2 million deaths.</li>
+                        <li>A healthy diet, regular physical activity, maintaining a normal body weight and avoiding tobacco use are ways to prevent or delay the onset of type 2 diabetes.</li>
+                        <li>Diabetes can be treated and its consequences avoided or delayed with diet, physical activity, medication and regular screening and treatment for complications.</li>
+                    </ul>
+
+                    <div>
+                        <h2>Overview</h2>
+                        <p>Diabetes is a chronic disease that occurs either when the pancreas does not produce enough insulin or when
+                            the body cannot effectively use the insulin it produces. Insulin is a hormone that regulates blood glucose.
+                            Hyperglycaemia, also called raised blood glucose or raised blood sugar, is a common effect of uncontrolled
+                            diabetes and over time leads to serious damage to many of the body's systems, especially the nerves and
+                            blood vessels.</p>
+                        <p>In 2014, 8.5% of adults aged 18 years and older had diabetes. In 2019, diabetes was the direct cause of 1.5
+                            million deaths and 48% of all deaths due to diabetes occurred before the age of 70 years. Another 460 000
+                            kidney disease deaths were caused by diabetes, and raised blood glucose causes around 20% of cardiovascular
+                            deaths <em>(1)</em>.</p>
+                        <p>Between 2000 and 2019, there was a 3% increase in age-standardized mortality rates from diabetes. In
+                            lower-middle-income countries, the mortality rate due to diabetes increased 13%.</p>
+                        <p>By contrast, the probability of dying from any one of the four main noncommunicable diseases (cardiovascular
+                            diseases, cancer, chronic respiratory diseases or diabetes) between the ages of 30 and 70 decreased by 22%
+                            globally between 2000 and 2019.&nbsp;</p>
+                        <h2>Symptoms</h2>
+                        <p>Symptoms of diabetes may occur suddenly. In type 2 diabetes, the symptoms can be mild and may take many years
+                            to be noticed.</p>
+                        <p>Symptoms of diabetes include: </p>
+                        <ul>
+                            <li>feeling very thirsty</li>
+                            <li>needing to urinate more often than usual </li>
+                            <li>blurred vision</li>
+                            <li>feeling tired</li>
+                            <li>losing weight unintentionally </li>
+                        </ul>
+                        <p>Over time, diabetes can damage blood vessels in the heart, eyes, kidneys and nerves.</p>
+                        <p>People with diabetes have a higher risk of health problems including heart attack, stroke and kidney failure.
+                        </p>
+                        <p>Diabetes can cause permanent vision loss by damaging blood vessels in the eyes.</p>
+                        <p>Many people with diabetes develop problems with their feet from nerve damage and poor blood flow. This can
+                            cause foot ulcers and may lead to amputation.</p>
+                        <h2>Type 1 diabetes</h2>
+                        <p>Type 1 diabetes (previously known as insulin-dependent, juvenile or childhood-onset) is characterized by
+                            deficient insulin production and requires daily administration of insulin. In 2017 there were 9 million
+                            people with type 1 diabetes; the majority of them live in high-income countries.&nbsp;Neither its cause nor
+                            the means to prevent it are known.</p>
+                        <h2>Type 2 diabetes</h2>
+                        <p>Type 2 diabetes affects how your body uses sugar (glucose) for energy. It stops the body from using insulin
+                            properly, which can lead to high levels of blood sugar if not treated. </p>
+                        <p>Over time, type 2 diabetes can cause serious damage to the body, especially nerves and blood vessels.</p>
+                        <p>Type 2 diabetes is often preventable. Factors that contribute to developing type 2 diabetes include being
+                            overweight, not getting enough exercise, and genetics. </p>
+                        <p>Early diagnosis is important to prevent the worst effects of type 2 diabetes. The best way to detect diabetes
+                            early is to get regular check-ups and blood tests with a healthcare provider. </p>
+                        <p>Symptoms of type 2 diabetes can be mild. They may take several years to be noticed. &nbsp;Symptoms may be
+                            similar to those of type 1 diabetes but are often less marked. As a result, the disease may be diagnosed
+                            several years after onset, after complications have already arisen.</p>
+                        <p>More than 95% of people with diabetes have type 2 diabetes. Type 2 diabetes was formerly called non-insulin
+                            dependent, or adult onset. Until recently, this type of diabetes was seen only in adults but it is now also
+                            occurring increasingly frequently in children.</p>
+                        <h2>Gestational diabetes</h2>
+                        <p>Gestational diabetes is hyperglycaemia with blood glucose values above normal but below those diagnostic of
+                            diabetes. Gestational diabetes occurs during pregnancy.</p>
+                        <p>Women with gestational diabetes are at an increased risk of complications during pregnancy and at delivery.
+                            These women and possibly their children are also at increased risk of type 2 diabetes in the future.</p>
+                        <p>Gestational diabetes is diagnosed through prenatal screening, rather than through reported symptoms.</p>
+                        <h2>Impaired glucose tolerance and impaired fasting glycaemia</h2>
+                        <p>Impaired glucose tolerance (IGT) and impaired fasting glycaemia (IFG) are intermediate conditions in the
+                            transition between normality and diabetes. People with IGT or IFG are at high risk of progressing to type 2
+                            diabetes, although this is not inevitable.</p>
+                        <h2>Prevention</h2>
+                        <p>Lifestyle changes are the best way to prevent or delay the onset of type 2 diabetes.</p>
+                        <p>To help prevent type 2 diabetes and its complications, people should: </p>
+                        <ul>
+                            <li>reach and keep a health body weight</li>
+                            <li>stay physically active with at least 30 minutes of moderate exercise each day </li>
+                            <li>eat a healthy diet and avoid sugar and saturated fat</li>
+                            <li>not smoke tobacco.</li>
+                        </ul>
+                        <h2>Diagnosis and treatment</h2>
+                        <p>Early diagnosis can be accomplished through relatively inexpensive testing of blood glucose. People with type
+                            1 diabetes need insulin injections for survival.</p>
+                        <p>One of the most important ways to treat diabetes is to keep a healthy lifestyle. </p>
+                        <p>Some people with type 2 diabetes will need to take medicines to help manage their blood sugar levels. These
+                            can include insulin injections or other medicines. Some examples include: </p>
+                        <ul>
+                            <li>metformin</li>
+                            <li>sulfonylureas</li>
+                            <li>sodium-glucose co-transporters type 2 (SGLT-2) inhibitors.</li>
+                        </ul>
+                        <p>Along with medicines to lower blood sugar, people with diabetes often need medications to lower their blood
+                            pressure and statins to reduce the risk of complications. </p>
+                        <p>Additional medical care may be needed to treat the effects of diabetes:</p>
+                        <ul>
+                            <li>foot care to treat ulcers</li>
+                            <li>screening and treatment for kidney disease</li>
+                            <li>eye exams to screen for retinopathy (which causes blindness).</li>
+                        </ul>
+                        <h2>WHO response</h2>
+                        <p>WHO aims to stimulate and support the adoption of effective measures for the surveillance, prevention and
+                            control of diabetes and its complications, particularly in low- and middle-income countries. To this end,
+                            WHO:</p>
+                        <ul type="disc">
+                            <li data-list="1" data-level="1">provides scientific guidelines for the prevention of major noncommunicable
+                                diseases including diabetes;</li>
+                            <li data-list="1" data-level="1">develops norms and standards for diabetes diagnosis and care;</li>
+                            <li data-list="1" data-level="1">builds awareness on the global epidemic of diabetes, marking World Diabetes
+                                Day (14 November); and</li>
+                            <li data-list="1" data-level="1">conducts surveillance of diabetes and its risk factors.</li>
+                        </ul>
+                        <p>In April 2021 WHO launched the Global Diabetes Compact, a global initiative aiming for sustained improvements
+                            in diabetes prevention and care, with a particular focus on supporting low- and middle-income countries.
+                        </p>
+                        <p>In May 2021, the World Health Assembly agreed a Resolution on strengthening prevention and control of
+                            diabetes. In May 2022 the World Health Assembly endorsed five global diabetes coverage and treatment targets
+                            to be achieved by 2030.</p>
+                        <p>&nbsp;</p>
+                        <p><strong>References</strong></p>
+                        <ol>
+                            <li><cite>Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2019. Results. Institute for Health Metrics and Evaluation. 2020 (<a href="https://vizhub.healthdata.org/gbd-results/" data-sf-ec-immutable="">https://vizhub.healthdata.org/gbd-results/</a>).</cite></li>
+                            <li><cite><a href="https://www.ncbi.nlm.nih.gov/pubmed/20609967" data-sf-ec-immutable="">Diabetes mellitus, fasting blood glucose concentration, and risk of vascular disease: a collaborative meta-analysis of 102 prospective studies. Emerging Risk Factors Collaboration</a>. Sarwar N, Gao P, Seshasai SR, Gobin R, Kaptoge S, Di Angelantonio et al. Lancet. 2010; 26;375:2215-2222.</cite></li>
+                            <li><cite>Causes of blindness and vision impairment in 2020 and trends over 30 years, and prevalence of avoidable blindness in relation to VISION 2020: the Right to Sight: an analysis for the Global Burden of Disease Study GBD 2019 Blindness and Vision Impairment Collaborators* on behalf of the Vision Loss Expert Group of the Global Burden of Disease Study† Lancet Global Health 2021;9:e141-e160.</cite></li>
+                            <li><cite><a href="https://www.ncbi.nlm.nih.gov/pubmed/26111994" data-sf-ec-immutable="">2014 USRDS annual data report: Epidemiology of kidney disease in the United States</a>.<br>United States Renal Data System. National Institutes of Health, National Institute of Diabetes and Digestive and Kidney Diseases, Bethesda, MD, 2014:188–210.</cite></li>        
+                        </ol>
+                        
+                        
+                    </div>
+                    <p class="text-end fst-italic">--The content is copied from <a href="https://www.who.int/news-room/fact-sheets/detail/diabetes#:~:text=Diabetes%20is%20a%20chronic%20disease,hormone%20that%20regulates%20blood%20glucose." target="_blank" rel="noopener noreferrer">WHO</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+
+    <footer class="bg-dark border-top border-body">
+        <div class="container sticky-bottom">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-end text-light py-3 mb-0">Designed by <a href="{% url 'about' %}">Rahat Parvej</a>- &copy;{% now 'Y' %}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

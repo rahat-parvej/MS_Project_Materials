@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetics Predictin System</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- fonts link  -->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body predict_pages_nav" data-bs-theme="dark">
+        <!-- Navbar content -->
+        <div class="container">
+            <a class="navbar-brand" href="#">DiaPred</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'predict' %}">Predict Your Diabetes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="{% url 'about' %}">About</a>
+                </li>
+            </ul>
+            <!-- <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            </div>
+          </div>
+    </nav>
+
+    <section class=" pt-5 ">
+      {% if res == 1.0 %}
+        <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                <div class="alert bg-danger text-center" role="alert">
+                  <div class="spinner-grow text-white" role="status"></div><h1 class="text-light">There is a chance that you could have diabetics</h1>
+                </div>
+              </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                <div class="alert bg-success text-center" role="alert">
+                  <div class="spinner-grow text-white" role="status"></div><h1 class="text-light">There is no chance that you could have diabetics</h1>
+                </div>
+              </div>
+          </div>
+        </div>
+      {% endif %}
+      <div class="container pt-3">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="description bg-success-subtle p-3 rounded">
+
+                <h1>Tips for You <a class="button button--primary btn btn-danger" href="https://www.diabetes.org.uk/resources-s3/2018-11/1512_10%20steps%20to%20eating%20well%20update_v5_.pdf" target="_blank">Download our tips (PDF)</a></h1>
+                
+                <img src="{% static "img/Screenshot 2023-11-02 173243.png" %}" class="img-fluid w-100 rounded border border-2 border-primary mb-3" alt="" srcset="" height="500" style="height:500px">
+                <p class="text-muted text-black text-center">source: <a href="https://www.diabetes.org.uk/guide-to-diabetes/enjoy-food/eating-with-diabetes/10-ways-to-eat-well-with-diabetes" class="text-decoration-none" target="_blank" rel="noopener noreferrer">The British Diabetic Association operating as Diabetes UK</a></p>
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">1. Choose healthier carbohydrates</button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                          <p>All carbs affect blood glucose levels so it’s important to know which foods contain <a href="">carbohydrates</a>. Choose the healthier foods that contain carbs and be aware of your portion sizes.</p>
+                          <p>Here are some healthy sources of carbohydrate:</p>
+                          <ul>
+                              <li>whole grains like brown rice, buckwheat and whole oats</li>
+                              <li>fruit</li>
+                              <li>vegetables</li>
+                              <li>pulses such as chickpeas, beans and lentils</li>
+                              <li>dairy like unsweetened yoghurt and milk.</li>
+                          </ul>
+                          <p>At the same time, it’s also important to cut down on foods low in fibre such as white bread, white rice and <a href="">highly-processed cereals</a>. You can check food labels when you’re looking for foods high in fibre if you’re unsure.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">2. Eat less salt</button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                          <p>Eating lots of <a href="">salt</a> can increase your risk of <a href="">high blood pressure</a>, which in turn increases risk of heart diseases and stroke. And when you have diabetes, you’re already more at risk of all of these conditions.</p>
+                          <p>Try to limit yourself to a maximum of 6g (one teaspoonful) of salt a day. Lots of pre-packaged foods already contain salt so remember to check food labels and choose those with less salt. Cooking from scratch will help you keep an eye on how much salt you’re eating. You can also get creative and swap out salt for different types of herbs and spices to add that extra flavour.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">3. Eat less red and processed meat</button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                          <p>If you’re cutting down on carbs, you might start to have bigger portions of meat to fill you up. But it’s not a good idea to do this with <a href="">red and processed meat</a>, like ham, bacon, sausages, beef and lamb. These all have links with heart problems and cancers.</p>
+                          <p>Try swapping red and processed meat for these:</p>
+                          <ul>
+                              <li>pulses such as beans and lentils</li>
+                              <li>eggs</li>
+                              <li>fish</li>
+                              <li>poultry like chicken and turkey</li>
+                              <li>unsalted nuts</li>
+                          </ul>
+                          <p>Beans, peas and lentils are also very high in <a href="">fibre</a> and don’t affect your blood glucose levels too much – making them a great swap for processed and red meat and keeping you feeling full. Most of us know that fish is good for us, but oily fish like salmon and mackerel are even better. These are rich in something called omega-3 oil, which helps protect your heart. Try and aim to eat two portions of oily fish a week.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">4. Eat more fruit and veg</button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p>We know eating <a href="">fruit and veg</a> is good for you. It’s always a good thing aim to eat more at meal times and have them as snacks if you’re hungry. This can help you get the vitamins, minerals and fibre your body needs every day to help keep you healthy.</p>
+                        <p>You might be wondering about fruit and if you should avoid it because it’s <a href="">sugary</a>? The answer is no. Whole fruit is good for everyone and if you have diabetes, it’s no different. Fruits do contain sugar, but it’s natural sugar. This is different to the added sugar (also known as free sugars) that are in things like chocolate, biscuits and cakes.</p>
+                        <p>Products like fruit juices also count as added sugar, so go for whole fruit instead. This can be fresh, frozen, dried or tinned (in juice, not in syrup). And it’s best to eat it throughout the day instead of one bigger portion in one go.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">5. Choose healthier fats</button>
+                    </h2>
+                    <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p>We all need <a href="">fat</a> in our diet because it gives us energy. But different types of fat affect our health in different ways.</p>
+                        <p>Healthier fats are in foods like unsalted nuts, seeds, avocados, oily fish, olive oil, rapeseed oil and sunflower oil. Some <a href="">saturated fats</a> can increase the amount of cholesterol in your blood, increasing your risk of heart problems. These are mainly found in animal products and prepared food like:</p>
+                        <ul>
+                            <li>red and processed meat</li>
+                            <li>ghee</li>
+                            <li>butter</li>
+                            <li>lard</li>
+                            <li>biscuits, cakes, pies and pastries.</li>
+                        </ul>
+                        <p>It’s still a good idea to cut down on using oils in general, so try to grill, steam or bake foods instead.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">6. Cut down on added sugar</button>
+                    </h2>
+                    <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p>We know <a href="">cutting out sugar</a> can be really hard at the beginning, so small practical swaps are a good starting point when you’re trying to cut down on excess sugar. Swapping sugary drinks, energy drinks and fruit juices with water, plain milk, or tea and coffee without sugar can be a good start.</p>
+                        <p>Cutting out these added sugars can help you manage your blood glucose levels and help you manage your weight. You can always try low or zero-calorie <a href="">sweeteners</a> (also known as artificial or non-sugar sweeteners) to help you cut back. These can also be helpful for weight loss in the short term if you don’t swap for other foods and drinks containing lots of calories. But, in the long term, try and reduce the overall sweetness in your diet.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">7. Be smart with snacks</button>
+                    </h2>
+                    <div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p>If you want a snack, choose yoghurts, unsalted nuts, seeds, fruits and vegetables instead of crisps, chips, biscuits and chocolates. But watch your portions still – it’ll help you keep an eye on your weight</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">8. Drink alcohol sensibly</button>
+                    </h2>
+                    <div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p><a href="">Alcohol</a> is high in calories, so if you do drink and you’re trying to lose weight, think about cutting back. Try to keep to a maximum of 14 units a week. But spread it out to avoid binge drinking, and go several days a week without alcohol.</p>
+                        <p>If you take insulin or other diabetes medications, it’s also not a good idea to drink on an empty stomach. This is because alcohol can make hypos more likely to happen.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">9. Don’t bother with so-called diabetic food</button>
+                    </h2>
+                    <div id="collapse9" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p>To say food is a "diabetic food" is now against the law. This is because there isn’t any evidence that these foods offer you a special benefit over eating healthily. They can also often contain just as much fat and calories as similar products, and can still affect your blood glucose level. These foods can also sometimes have a laxative effect.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed fs-3 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">10. Get your minerals and vitamins from foods</button>
+                    </h2>
+                    <div id="collapse10" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p>There’s no evidence that mineral and vitamin supplements help you manage your diabetes. So, unless you’ve been told to take something by your healthcare team, like folic acid for pregnancy, you don’t need to take supplements.</p>
+                        <p>It’s better to get your essential nutrients by eating a mixture of different foods. This is because some supplements can affect your medications or make some diabetes complications worse, like kidney disease.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h2>Don’t forget to keep moving</h2>
+                <p>Being more <big>physically active</big> goes hand in hand with eating healthier. It can help you manage your diabetes and also reduce your risk of heart problems. This is because it increases the amount of glucose used by your muscles and helps the body use insulin more efficiently.
+                </p>
+                <p>Try to aim for at least 150 minutes of moderate intensity activity a week. This is any activity that raises your heart rate, makes you breathe faster and feel warmer. You should still be able to talk and only be slightly out of breath. And you don’t have to do all 150 minutes in one go. Break it down into bite-size chunks of 10 minutes throughout the week or 30 minutes 5 times a week.</p>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    
+      
+    
+    
+    
+    
+
+    <footer class="bg-dark border-top border-body">
+      <div class="container sticky-bottom">
+          <div class="row">
+              <div class="col-md-12">
+                  <p class="text-end text-light py-3 mb-0">Designed by <a href="{% url 'about' %}">Rahat Parvej</a>- &copy;{% now 'Y' %}</p>
+              </div>
+          </div>
+      </div>
+    </footer>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

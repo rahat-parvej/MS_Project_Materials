@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetics Predictin System</title>
+  <!-- css link -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  <!-- fonts link  -->
+  <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body predict_pages_nav" data-bs-theme="dark">
+            <!-- Navbar content -->
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'home' %}">DiaPred</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'login' %}">Home</a>
+                    </li>
+                    
+                </ul> -->
+                <!-- <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="signup_body">
+      <div class="container">
+        <div class="row signup_form">
+          <div class="col-md-12">
+            <form method="post" action="{% url 'signup' %}" class="py-4">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Hospital's Name</label>
+                    <input type="text" name="name" id="" class="form-control" placeholder="Enter the Hospital Name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Hospital's Email" required>
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-12 col-md-6">
+                    <label for="username" class="form-label">User Name</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter your User Name" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="contact" class="form-label">Contact Number</label>
+                    <input type="tel" name="contact" id="contact" class="form-control" placeholder="e.g:- 01741462787" required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-12 col-md-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password"  required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="conpass" class="form-label">Confirm Password</label>
+                    <input type="password" name="conpass" id="conpass" class="form-control" aria-describedby="passwordHelpInline" onkeyup="checkPasswordMatch()" placeholder="Re-type the password" required>
+                    <div class="alert mb-0" role="alert" id="divCheckPasswordMatch"></div>
+                  </div>
+                </div>               
+                <button type="submit" class="btn btn-primary">Sign up</button>
+            </form>
+            <script>
+              function checkPasswordMatch() {
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("conpass").value;
+          
+                if (password != confirmPassword)
+                  document.getElementById("divCheckPasswordMatch").innerHTML="Password does not matched";
+                else
+                document.getElementById("divCheckPasswordMatch").innerHTML="Password matched";
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <footer class="bg-dark border-top border-body fixed-bottom">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <p class="text-end text-light py-3 mb-0">Designed by <a href="{% url 'about' %}">Rahat Parvej</a>- &copy;2023</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

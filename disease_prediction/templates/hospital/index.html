@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diabetics Predictin System</title>
+        <!-- css link -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        
+
+        <!-- fonts link  -->
+        <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <section class="login_body">
+            {% comment %} <video class="z-n1" autoplay="" muted="" loop="" id="myVideo" __idm_id__="2629633" style="position: fixed;left: 0;top: 0;min-width: 100%;min-height: 100%;">
+                <source src="https://altrishal.org/img/bdflag.mp4" type="video/mp4">
+            </video> {% endcomment %}
+            <div class="container h-100">
+                
+                <div class="row h-100 align-items-center">
+                    <div class="col-md-12">
+                        {% for message in messages %}
+                            
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Message:</strong> {{ message }} <span aria-hidden="true" >&times;</span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                        <form action="{% url 'login' %}" method="post" class="rounded border p-3 shadow-lg bg-body-secondary text-dark"> 
+                            {% csrf_token %}                     
+                                <h3><a href="{% url 'home' %}" class="text-decoration-none">DiaPred</a></h3>
+                                <p>Sign in with your username and password</p>
+                                <div class="form-floating mb-3">
+                                    
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                    <label for="email">Email address</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                                    <label for="password">Password</label>
+                                </div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary">Login</button>
+
+                                <!-- Sign up link -->
+                                <p class="register">Not a member?  <a href="{% url 'signup' %}">Register here!</a></p>
+
+                            
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
